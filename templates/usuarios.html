@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Gestión Usuario</h2>
+  <form method="post">
+    <label>Usuario <input name="username" required></label>
+    <label>Contraseña <input name="password" required></label>
+    <label>Perfil
+      <select name="id_perfil" required>
+        <option value="">Seleccione</option>
+        {% for p in perfiles %}<option value="{{ p.id_perfil }}">{{ p.nombre }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Persona
+      <select name="id_persona" required>
+        <option value="">Seleccione</option>
+        {% for p in personas %}<option value="{{ p.id_persona }}">{{ p.nombres }} {{ p.apellidos }}</option>{% endfor %}
+      </select>
+    </label>
+    <label><input type="checkbox" name="estado" checked> Activo</label>
+    <button type="submit">Guardar</button>
+  </form>
+</section>
+<table>
+  <tr><th>ID</th><th>Usuario</th><th>Persona</th><th>Perfil</th><th>Estado</th><th>Acción</th></tr>
+  {% for u in usuarios %}
+  <tr>
+    <td>{{ u.id_usuario }}</td><td>{{ u.username }}</td><td>{{ u.nombres }} {{ u.apellidos }}</td>
+    <td>{{ u.perfil_nombre }}</td><td>{{ 'Activo' if u.estado else 'Inactivo' }}</td>
+    <td>
+      <form method="post" action="{{ url_for('usuarios_toggle', user_id=u.id_usuario) }}">
+        <button type="submit">Inhabilitar/Habilitar</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

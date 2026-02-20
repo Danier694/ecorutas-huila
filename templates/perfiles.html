@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Gestión Perfil</h2>
+  <form method="post">
+    <label>Nombre <input name="nombre" required></label>
+    <label>Descripción <input name="descripcion"></label>
+    <label><input type="checkbox" name="estado" checked> Activo</label>
+    <button type="submit">Guardar</button>
+  </form>
+</section>
+<table>
+  <tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Estado</th><th>Acción</th></tr>
+  {% for p in perfiles %}
+  <tr>
+    <td>{{ p.id_perfil }}</td><td>{{ p.nombre }}</td><td>{{ p.descripcion }}</td>
+    <td>{{ 'Activo' if p.estado else 'Inactivo' }}</td>
+    <td>
+      <form method="post" action="{{ url_for('perfiles_toggle', perfil_id=p.id_perfil) }}">
+        <button type="submit">Inhabilitar/Habilitar</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

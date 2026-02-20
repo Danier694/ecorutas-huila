@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Acceso al Sistema</h2>
+  <form method="post">
+    <label>Usuario
+      <input type="text" name="username" placeholder="Ingrese su usuario">
+    </label>
+    <label>Contraseña
+      <input type="password" name="password" placeholder="Ingrese su contraseña">
+    </label>
+    <button type="submit">Ingresar</button>
+  </form>
+  <div class="links">
+    <a href="{{ url_for('recuperar') }}">¿Olvidó su usuario o contraseña?</a>
+    <a href="{{ url_for('personas') }}">Registrarse</a>
+  </div>
+</section>
+{% endblock %}

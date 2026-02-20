@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+ecorutas.db
+correo_recuperacion.log
