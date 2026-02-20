@@ -1,0 +1,20 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f3f9f5; color: #1f2937; }
+header { background: #065f46; color: #fff; padding: 12px 24px; display:flex; justify-content:space-between; align-items:center; }
+nav a { color:#d1fae5; margin-right:12px; text-decoration:none; }
+main { padding: 20px; }
+.card { background:#fff; border-radius:10px; padding:16px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+form { display:grid; gap:10px; max-width:500px; }
+input, select, button { padding:8px; border-radius:6px; border:1px solid #cbd5e1; }
+button { background:#047857; color:#fff; border:none; cursor:pointer; }
+button:hover { background:#065f46; }
+.alert { padding:10px; border-radius:8px; margin-bottom:8px; }
+.alert.success { background:#dcfce7; }
+.alert.danger { background:#fee2e2; }
+.alert.warning { background:#fef3c7; }
+.alert.info { background:#dbeafe; }
+table { width:100%; border-collapse: collapse; background:#fff; border-radius:8px; overflow:hidden; }
+th, td { border:1px solid #e5e7eb; padding:8px; font-size:14px; }
+.grid { display:grid; grid-template-columns: repeat(3, minmax(180px,1fr)); gap:12px; }
+.tile { background:#10b981; color:#fff; padding:24px; text-align:center; border-radius:10px; text-decoration:none; font-weight:bold; }
+.links { display:flex; justify-content:space-between; margin-top:10px; }
+footer { text-align:center; padding:12px; color:#6b7280; }

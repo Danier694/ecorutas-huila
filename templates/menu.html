@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Bienvenido(a), {{ session.get('nombre_completo') }}</h2>
+  <p>Perfil: <strong>{{ session.get('perfil') }}</strong></p>
+  <p>Panel principal del sistema de gestión de ecoturismo del Huila.</p>
+</section>
+<div class="grid">
+  <a class="tile" href="{{ url_for('perfiles') }}">Gestión Perfil</a>
+  <a class="tile" href="{{ url_for('personas') }}">Gestión Persona</a>
+  <a class="tile" href="{{ url_for('usuarios') }}">Gestión Usuario</a>
+</div>
+{% endblock %}

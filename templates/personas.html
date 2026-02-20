@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Gestión Persona</h2>
+  <form method="post">
+    <label>Tipo Documento <input name="tipo_documento" required></label>
+    <label>Número Documento <input name="numero_documento" required></label>
+    <label>Nombres <input name="nombres" required></label>
+    <label>Apellidos <input name="apellidos" required></label>
+    <label>Correo <input type="email" name="correo" required></label>
+    <label>Teléfono <input name="telefono"></label>
+    <label><input type="checkbox" name="estado" checked> Activo</label>
+    <button type="submit">Guardar</button>
+  </form>
+</section>
+<table>
+  <tr><th>ID</th><th>Documento</th><th>Nombre</th><th>Correo</th><th>Estado</th><th>Acción</th></tr>
+  {% for p in personas %}
+  <tr>
+    <td>{{ p.id_persona }}</td>
+    <td>{{ p.tipo_documento }} {{ p.numero_documento }}</td>
+    <td>{{ p.nombres }} {{ p.apellidos }}</td>
+    <td>{{ p.correo }}</td>
+    <td>{{ 'Activo' if p.estado else 'Inactivo' }}</td>
+    <td>
+      <form method="post" action="{{ url_for('personas_toggle', persona_id=p.id_persona) }}">
+        <button type="submit">Inhabilitar/Habilitar</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
